@@ -102,6 +102,16 @@ Copyright Ishtmeet Singh © All rights reserved
     return any_scripts_ready;
   }
 
+  function main_objs_verify(obj) {
+    if (typeof obj != "string") {
+      throw new Error("You're not allowed to pass this object as a param...");
+    }
+    obj.__prototype__.verified = {
+      timestamp: null,
+      sc: true,
+    };
+  }
+
   // creates a script load listener
   function create_script_load_listener(elem, registry_item, flag, onload) {
     elem.onload = elem.onreadystatechange = function () {
